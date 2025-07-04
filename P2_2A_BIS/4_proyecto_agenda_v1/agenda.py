@@ -33,5 +33,60 @@ def mostrarContactos(agenda):
     if not agenda:
         print("No hay contactos registrados::...")
     else:
-        for i in agenda:
-            print(f"{i} {agenda[i]}")
+        for nombre, datos in agenda.items():
+            print(f"-"*60)
+            print(f"Nombre: {nombre}")
+            print(f"Teléfono: {datos[0]}")
+            print(f"Email: {datos[1]}")
+        print("-"*60) 
+
+def buscarContacto(agenda):
+    borrarPantalla()
+    print("\n\t:::BUSCAR CONTACTO:::")
+    nombre = input("Nombre del contacto a buscar: ").upper().strip()
+    if nombre in agenda:
+        datos = agenda[nombre]
+        print(f"\n\tContacto encontrado:")
+        print(f"-"*60)
+        print(f"Nombre: {nombre}\nTeléfono: {datos[0]}\nEmail: {datos[1]}")
+        print(f"-"*60)
+    else:
+        print("\n\tContacto no encontrado.")
+        
+def modificarContacto(agenda):
+    borrarPantalla()
+    print("\n\t:::MODIFICAR CONTACTO:::")
+    if not agenda:
+        print("No hay contactos en la agenda")
+    else:
+        nombre = input("Nombre del contacto a buscar: ").upper().strip()
+        if nombre in agenda:
+            print(f"\n\tContacto actual: {nombre} - Teléfono: {agenda[nombre][0]}, Email: {agenda[nombre][1]}")
+            nueva_tel = input("Nuevo tel.(dejar en blanco para no cambiar): ").upper().strip()
+            nuevo_email = input("Nuevo email (dejar en blanco para no cambiar): ").lower().strip()
+            if nueva_tel:
+                agenda[nombre][0] = nueva_tel
+            if nuevo_email:
+                agenda[nombre][1] = nuevo_email
+            print("\n\tContacto modificado con éxito.")
+
+def eliminarContacto(agenda):
+    borrarPantalla()
+    print("\n\t:::ELIMINAR CONTACTO:::")
+    if not agenda:
+        print("No hay contactos en la agenda")
+    else:
+        nombre = input("Nombre del contacto a buscar: ").upper().strip()
+        if nombre in agenda:
+            print(":::Valores actuales:::")
+            print(f"\n\tContacto actual: {nombre}\nTeléfono: {agenda[nombre][0]}\nEmail: {agenda[nombre][1]}")
+            resp=input("Desea eliminar el contacto? Si/No").lower().strip()
+            if resp=="si":
+                agenda.pop(nombre)
+                print("Accion realizada con exito")
+            else:
+                print("Perfecto! gracias por su asistencia")
+        else:
+            print("Este contacto no existe")
+    
+                
