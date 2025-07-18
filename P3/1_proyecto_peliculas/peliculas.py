@@ -137,12 +137,13 @@ def modificarPeliculas():
         print(f"-"*80) 
         resp=input(f"¿Deseas modificar la pelicula {nombre}? (Si/No): " ).lower().strip()
         if resp=="si":
+           nuevo_nombre=input("Ingresa el nuevo nombre: ").upper().strip()
            nueva_categoria=input("Ingresa la nueva categoria: ").upper().strip()
            nueva_clasificacion=input("Ingresa la nueva clasificacion: ").upper().strip()
            nuevo_genero=input("Ingresa el nuevo genero: ").upper().strip()
            nuevo_idioma=input("Ingresa el nuevo idioma: ").upper().strip()
-           sql="update peliculas set categoria=%s, clasificacion=%s, genero=%s, idioma=%s where nombre=%s"
-           val=(nueva_categoria,nueva_clasificacion,nuevo_genero,nuevo_idioma,nombre)
+           sql="update peliculas set nombre= %s categoria=%s, clasificacion=%s, genero=%s, idioma=%s where nombre=%s"
+           val=(nuevo_nombre, nueva_categoria,nueva_clasificacion,nuevo_genero,nuevo_idioma,nombre)
            cursor.execute(sql,val)
            conexionBD.commit()
            print("\n\t\t :::¡LA OPERACION SE REALIZÓ CON EXÍTO! :::")
