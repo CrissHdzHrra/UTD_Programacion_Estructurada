@@ -1,15 +1,5 @@
-'''
-Crear un proyecto que permita gestionar (administrar) peliculas. Colocar un menu de opciones: Agregar, Borrar, Modificar, Mostrar, Buscar peliculas.
-
-Notas: 
-1.- Utilizar funciones y mandar llamar desde otro archivo (modulo)
-2.- Utilizar dict para almacenar los atributos (nombre,categoria,clasificacion,genero,idioma) de peliculas
-3.- Implementar y utlizar una BD Relacional en MySQL
-
-'''
 
 import peliculas
-
 opcion=True
 
 while opcion:
@@ -36,11 +26,11 @@ while opcion:
       case "6":
          opcion=False
          peliculas.borrarPantalla()
-         print("\n\tTerminaste la ejecución del Sistema ... Gracias ...")
+         print("\n\tTerminaste la ejecución del Sistema ... Hasta luego! ...")
       case _:
          opcion=True
          peliculas.esperarTecla()
-         print("\n\tOpción Invalida vuelva a intentarlo")   
+         print("\n\tOpción Invalida, vuelva a intentarlo")   
 
                         
 
