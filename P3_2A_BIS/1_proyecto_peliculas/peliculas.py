@@ -1,16 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
 
-#Dict u objeto que permita almacenar los siguientes atributos: (nombre,categoria,clasificacion,genero,idioma) de peliculas
-
-# pelicula={
-#             "nombre":"",
-#             "categoria":"",
-#             "clasificacion":"",
-#             "genero":"",
-#             "idioma":""
-#          }
-
 pelicula={}
 
 def borrarPantalla():
